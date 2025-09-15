@@ -7,39 +7,33 @@ const Produtos = () => {
     const [dados, setDados] = useState([]);
 
     const pegarPizzas = async () => {
-
-        await axios.get("http://172.19.0.49/pizzariaoficial/api/v1/produto", 
-            {withCredentials: true}
-        )
-        .then((response) => setDados(JSON.stringify(response.data)))
+        await axios.get("/backend/produto")
+        .then((response) => console.log(response.data))
         .catch((error) => console.log(error))
     }
 
     useEffect(()=>{
         pegarPizzas();
+        setDados(dados)
     }, [])
 
     useEffect(()=>{
-        console.log(dados)
+        console.log(dados.data)
     }, [dados])
 
-    // Objeto de produtos da lista
-    const pizzas = [
-        'Pizza de Muçarela',
-        'Pizza de Calabreza',
-        'Pizza Baiana',
-        'Pizza Portuguesa',
-        'Pizza de Frango'
-    ]
     // Iteração da lista de pizzas
-    const listaPizzas = pizzas.map(pizza => <li>{pizza}</li>);
+    const ListaPizzas = () => { 
+        return Array.isArray(dados.data) ? dados.map(pizza => (
+        <li key={pizza.id}>
+            {pizza.nome}
+        </li>)) : null;};
 
     return (
         <div>
             <h3>Listagem de Produtos</h3>
 
             <ul>
-                {listaPizzas}
+                <ListaPizzas />
             </ul>
         </div>
     )
