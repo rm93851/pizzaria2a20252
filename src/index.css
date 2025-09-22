@@ -28,8 +28,8 @@ body {
   place-items: start;
   min-width: 320px;
   min-height: 100vh;
-  background-color: aquamarine;
-  color: yellow;
+  background-color: rgb(24, 24, 22);
+  color: rgb(238, 238, 233);
 }
 
 h1 {
@@ -44,12 +44,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #61aad4;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #7579c5;
 }
 button:focus,
 button:focus-visible {
@@ -58,11 +58,11 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #15191d;
+    background-color: #e4db8d;
   }
   a:hover {
-    color: #747bff;
+    color: #1e1f1a;
   }
   button {
     background-color: #f9f9f9;
